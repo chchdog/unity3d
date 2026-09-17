@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 
 [RequireComponent(typeof(Rigidbody))]
@@ -14,28 +15,28 @@ public class Joncontroler : MonoBehaviour
     Rigidbody rigidbody;
     void Start()
     {
-         MyTransform = GetComponent<Transform>();
+        
          rigidbody = GetComponent<Rigidbody>();
     }
 
     
     void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        //float horizontal = Input.GetAxis("Horizontal");
+        //float vertical = Input.GetAxis("Vertical");
         
-        Vector2 input = new Vector2(horizontal, vertical);
-        input.Normalize();
-        print(input);
+        //Vector2 input = new Vector2(horizontal, vertical);
+        //input.Normalize();
+        //print(input);
 
         
 
-           Vector3 NewPosition = new Vector3(
-            MyTransform.position.x+input.x*speed*Time.deltaTime,
-            MyTransform.position.y,
-            MyTransform.position.z+input.y*speed*Time.deltaTime);
+         //  Vector3 NewPosition = new Vector3(
+          //  MyTransform.position.x+input.x*speed*Time.deltaTime,
+          //  MyTransform.position.y,
+          //  MyTransform.position.z+input.y*speed*Time.deltaTime);
 
-            rigidbody.MovePosition(NewPosition);
+        //    rigidbody.MovePosition(NewPosition);
 
 
         //더하기 연산으로 문자열 붙이기
@@ -49,7 +50,15 @@ public class Joncontroler : MonoBehaviour
 
     private void FixedUpdate()
     {
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        Vector2 input = new Vector2(horizontal, vertical);
+        input.Normalize();
+        print(input);
+
         MyTransform = GetComponent<Transform>();
+
 
         Vector3 NewPosition = new Vector3(
             MyTransform.position.x + input.x * speed * Time.deltaTime,
