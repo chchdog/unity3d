@@ -1,30 +1,30 @@
 using UnityEngine;
 
-public class Gargoyle : MonoBehaviour
+public class Ghost : MonoBehaviour
 {
 
     [SerializeField]
     Transform EyeTransform;
-    
+
     void Start()
     {
-        
+
     }
 
-    
+
     void Update()
     {
-        
+
     }
 
-    private void OnTriggerEnter(Collider other) //Æ®¸®°Å ¾È¿¡ ´Ù¸¥ Äİ¶óÀÌ´õ°¡ µé¾î¿ÔÀ»¶§
+    private void OnTriggerEnter(Collider other) //íŠ¸ë¦¬ê±° ì•ˆì— ë‹¤ë¥¸ ì½œë¼ì´ë”ê°€ ë“¤ì–´ì™”ì„ë•Œ
     {
-        
-        if (other.gameObject.CompareTag("Player"))  //º® µÚ¿¡ ÀÖÀ»¶© ¾È°É¸®°Ô ÇÏ±â
+
+        if (other.gameObject.CompareTag("Player"))  //ë²½ ë’¤ì— ìˆì„ë• ì•ˆê±¸ë¦¬ê²Œ í•˜ê¸°
         {
             GameObject player = other.gameObject;
             Vector3 direction = player.transform.position - EyeTransform.position;
-            Ray ray = new Ray(EyeTransform.position,direction);
+            Ray ray = new Ray(EyeTransform.position, direction);
             RaycastHit hit;
 
             //print(LayerMask.NameToLayer("Character"));
@@ -55,5 +55,5 @@ public class Gargoyle : MonoBehaviour
         }
     }
 
-  
+
 }
