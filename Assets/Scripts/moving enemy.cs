@@ -1,40 +1,44 @@
-using UnityEditor.Analytics;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.UI;
 
-public class movingenemy : MonoBehaviour
+public class MovingEnemy : MonoBehaviour
 {
+    //문제1
+    //위치를 랜덤으로 가게 만들기  끝
+    //문제2
+    //도착후 일정 시간동안 제자리에 머무르게  <- 해야함
+
+
     private NavMeshAgent navMeshAgent;
 
-    [SerializeField]
-    Transform[] waypoint;
+    public Transform[] waypoints;
     private int currentIndex = 0;
-
-
 
     void Start()
     {
-        print("다음 이동할 웨이포인트 번호" + currentIndex);
         navMeshAgent = GetComponent<NavMeshAgent>();
-        Gotonextwaypoint();
+        GotoNextWaypoint();
     }
 
-    void Gotonextwaypoint()
+    void GotoNextWaypoint()
     {
-        if (waypoint.Length == 0) return;
-
-        navMeshAgent.SetDestination(waypoint[currentIndex].position);
-
-        currentIndex = (currentIndex + 1) % waypoint.Length; 
+        if (waypoints.Length == 0) return;
+        
+        currentIndex = Random.Range(0, waypoints.Length);
+        navMeshAgent.SetDestination(waypoints[currentIndex].position);
     }
 
-    // Update is called once per frame
     void Update()
     {
-         if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance <= 0.5f)
+       
+        
+
+
+
+        if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance <= 0.15f)
         {
-            Gotonextwaypoint();
+           
+            GotoNextWaypoint();
         }
     }
 }
