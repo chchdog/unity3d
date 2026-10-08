@@ -5,7 +5,7 @@ using UnityEngine.Experimental.Video;
 public class GmaeRuleManager : MonoBehaviour
 {
     
-    private void Awake()
+    private void Start()
     {
         
     }

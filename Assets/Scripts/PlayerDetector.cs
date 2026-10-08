@@ -1,27 +1,36 @@
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using VContainer;
 
 public class PlayerDetector : MonoBehaviour
 {
-
     [SerializeField]
     Transform EyeTransform;
 
-    
+    [Inject]
+   IUiManager uiManager;
 
 
-    void Start()
-    {
-
-    }
 
 
-    void Update()
-    {
 
-    }
+
 
     private void OnTriggerEnter(Collider other) //트리거 안에 다른 콜라이더가 들어왔을때
     {
+        if (uiManager == null)
+        {
+            print("uimanager is null!");
+            return;
+        }
+        else
+        {
+            print("uimanager is not null!");
+        }
+           
+
+        
+
 
         if (other.gameObject.CompareTag("Player"))  //벽 뒤에 있을땐 안걸리게 하기
         {
@@ -37,7 +46,7 @@ public class PlayerDetector : MonoBehaviour
                 print(hit.collider.gameObject.name);
                 if (hit.collider.gameObject == player)
                 {
-                    print("you got me");
+                    uiManager.ShowLoseImage();
                 }
             }
 
