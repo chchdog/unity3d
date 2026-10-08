@@ -1,10 +1,13 @@
 using UnityEngine;
 
-public class Ghost : MonoBehaviour
+public class PlayerDetector : MonoBehaviour
 {
 
     [SerializeField]
     Transform EyeTransform;
+
+    
+
 
     void Start()
     {
@@ -34,7 +37,7 @@ public class Ghost : MonoBehaviour
                 print(hit.collider.gameObject.name);
                 if (hit.collider.gameObject == player)
                 {
-                    print("I got you");
+                    print("you got me");
                 }
             }
 

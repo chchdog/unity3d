@@ -181,6 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c48cd8dba6ee2c4f8bb435380983342, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
+  EyeTransform: {fileID: 1295827399806541994}
 --- !u!4 &4117323294608012657 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: d3312d02a690eda48bd6807bf5c78084,

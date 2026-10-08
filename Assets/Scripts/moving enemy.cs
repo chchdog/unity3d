@@ -9,6 +9,9 @@ public class MovingEnemy : MonoBehaviour
     //문제2
     //도착후 일정 시간동안 제자리에 머무르게  끝
 
+    [SerializeField]
+    float Timer = 1.5f;
+
 
     private NavMeshAgent navMeshAgent;
 
@@ -58,7 +61,7 @@ public class MovingEnemy : MonoBehaviour
     {
         isWayting = true;
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(Timer);
 
         GotoNextWaypoint();
 
